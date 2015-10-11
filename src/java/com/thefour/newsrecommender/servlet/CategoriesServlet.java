@@ -13,13 +13,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-
 /**
  *
  * @author Quang Quang
  */
 @WebServlet(name = "CategoriesServlet", urlPatterns = {"/categories"})
-
 public class CategoriesServlet extends HttpServlet {
 
     /**
@@ -36,10 +34,9 @@ public class CategoriesServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-            //access Database and get categories 
             out.println("{\"categories\":[	{\"id\":\"02\",\"name\":\"Kinh Doanh\"},");
             out.println("{\"id\":\"03\",\"name\":\"Giải Trí\"},{\"id\":\"04\",\"name\":\"Công Nghệ\"},");
-            out.println("{\"id\":\"05\",\"name\":\"Thời Sự\"}]}");            
+            out.println("{\"id\":\"05\",\"name\":\"Thời Sự\"}]}");      
         }
     }
 
