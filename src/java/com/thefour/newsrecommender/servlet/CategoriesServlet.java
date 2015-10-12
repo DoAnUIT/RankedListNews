@@ -5,8 +5,12 @@
  */
 package com.thefour.newsrecommender.servlet;
 
+import BusinessLayer.CategoriesBUS;
+import DTO.CategoriesDTO;
+import com.google.gson.Gson;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -32,11 +36,13 @@ public class CategoriesServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        CategoriesBUS cateBUS = new CategoriesBUS("nhat", "mysql!@3");
+        List<CategoriesDTO> lcate = cateBUS.getCategories();
+        Gson json = new Gson();
+        String rs = "{\"categories\":" + json.toJson(lcate) + "}";
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-            out.println("{\"categories\":[	{\"id\":\"02\",\"name\":\"Kinh Doanh\"},");
-            out.println("{\"id\":\"03\",\"name\":\"Giải Trí\"},{\"id\":\"04\",\"name\":\"Công Nghệ\"},");
-            out.println("{\"id\":\"05\",\"name\":\"Thời Sự\"}]}");      
+            out.printf(rs);
         }
     }
 
