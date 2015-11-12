@@ -39,16 +39,17 @@ public class NewsDAO extends DataSource{
             NewsDTO temptCate = null;
             while(rs.next()){
                 temptCate = new NewsDTO();
-                temptCate.setID(rs.getInt(1));
-                temptCate.setTitle(rs.getString(2));
-                temptCate.setContentUrl(rs.getString(3));
-                temptCate.setCategoryID(rs.getInt(4));
-                temptCate.setMagazineID(rs.getInt(5));
+                temptCate.setIDTableNews(rs.getInt(1));
+                temptCate.setID(rs.getInt(2));
+                temptCate.setTitle(rs.getString(3));
+                temptCate.setContentUrl(rs.getString(4));
+                temptCate.setCategoryID(rs.getInt(5));
+                temptCate.setMagazineID(rs.getInt(6));
                 
-                temptCate.setDescription(rs.getString(6));
-                temptCate.setImageUrl(rs.getString(7));
-                temptCate.setNewsTime(rs.getTimestamp(8));
-                temptCate.setRating(rs.getInt(9));
+                temptCate.setDescription(rs.getString(7));
+                temptCate.setImageUrl(rs.getString(8));
+                temptCate.setNewsTime(rs.getTimestamp(9));
+                temptCate.setRating(rs.getInt(10));
                 
                 lcate.add(temptCate);
             }

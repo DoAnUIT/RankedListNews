@@ -1,12 +1,14 @@
+
 create table news
 (
-	id int primary key,
+	idTableNews int primary key,
+	id int unique,
     title nvarchar(200),
     contenturl nvarchar(200),
     categoryid int,
     magazineid int,
     description text,
-    imageurl nvarchar(200),
+    imageurl nvarchar(300),
     newstime timestamp,
     rating int
 );

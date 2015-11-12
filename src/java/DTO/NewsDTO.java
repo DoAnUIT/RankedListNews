@@ -13,6 +13,7 @@ import java.sql.Timestamp;
  */
 public class NewsDTO {
 
+    private int idTableNews = 0;
     private int id = 0;
     private String title = null;
     private String contenturl = null;
@@ -23,6 +24,13 @@ public class NewsDTO {
     private Timestamp newstime = null;
     private int rating = 0;
 
+    // idTableNews
+    public int getIDTableNews(){
+        return this.idTableNews;
+    }
+    public void setIDTableNews(int a){
+        this.idTableNews = a;
+    }
     // id
     public int getID() {
         return this.id;
