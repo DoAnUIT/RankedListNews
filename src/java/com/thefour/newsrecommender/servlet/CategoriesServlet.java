@@ -42,7 +42,7 @@ public class CategoriesServlet extends HttpServlet {
         String rs = "{\"categories\":" + json.toJson(lcate) + "}";
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-            out.printf(rs);
+            out.println(rs);
         }
     }
 

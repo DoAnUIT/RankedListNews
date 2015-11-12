@@ -25,7 +25,7 @@ public class NewsBUS {
         categories = new NewsDAO(username, password);
     }
     
-    public List<NewsDTO> getNews(int offset, int limit){
-        return categories.getNews(offset, limit);
+    public List<NewsDTO> getNews(int offset, int limit, int categoryid){
+        return categories.getNews(offset, limit, categoryid);
     }
 }

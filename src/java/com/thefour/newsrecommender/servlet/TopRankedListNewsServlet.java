@@ -46,19 +46,23 @@ public class TopRankedListNewsServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         String offset = request.getParameter("offset");
         String limit = request.getParameter("limit");
+        String categoryid = request.getParameter("categoryid");
         if(offset != null && limit != null)
         {
-        List<NewsDTO> lnews = newsBUS.getNews(Integer.parseInt(offset),Integer.parseInt(limit));
+        List<NewsDTO> lnews = newsBUS.getNews(Integer.parseInt(offset),Integer.parseInt(limit),Integer.parseInt(categoryid));
 
         Gson gson = new Gson();
         json = "{\"news\":" + gson.toJson(lnews) + "}";
         }
         else
             json = "{error}";
-        try (PrintWriter out = response.getWriter()) {
+        
+        PrintWriter out = response.getWriter();
             /* TODO output your page here. You may use following sample code. */
-            out.printf(json);
-        }
+            
+        out.println(json);
+        
+        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

@@ -23,7 +23,7 @@ public class NewsDAO extends DataSource{
         this.password = password;
     }
     
-    public List<NewsDTO> getNews(int offset, int limit){
+    public List<NewsDTO> getNews(int offset, int limit, int categoryid){
         List<NewsDTO> lcate = new ArrayList<NewsDTO>();
         try {
             connection = DataSource.getInstance().getConnection();
@@ -32,9 +32,10 @@ public class NewsDAO extends DataSource{
             
             //id,  title,   contenturl,    categoryid ,   sourceid
     // description , imageurl ,    newstime , rating
-            call = connection.prepareCall("call getNews(?,?)");
+            call = connection.prepareCall("call getNews(?,?,?)");
             call.setInt(1, offset);
             call.setInt(2, limit);
+            call.setInt(3, categoryid);
             ResultSet rs = call.executeQuery();
             NewsDTO temptCate = null;
             while(rs.next()){
