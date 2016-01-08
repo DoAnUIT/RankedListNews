@@ -1,7 +1,7 @@
 
 create table news
 (
-	idTableNews int primary key,
+	idTableNews int auto_increment primary key,
 	id int unique,
     title nvarchar(200),
     contenturl nvarchar(200),
@@ -10,6 +10,6 @@ create table news
     description text,
     imageurl nvarchar(300),
     newstime timestamp,
-    rating int
+    rating float
 );
 

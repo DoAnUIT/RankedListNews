@@ -36,7 +36,7 @@ public class CategoriesServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        CategoriesBUS cateBUS = new CategoriesBUS("nhat", "mysql!@3");
+        CategoriesBUS cateBUS = new CategoriesBUS("root", "rootmysql!@3");
         List<CategoriesDTO> lcate = cateBUS.getCategories();
         Gson json = new Gson();
         String rs = "{\"categories\":" + json.toJson(lcate) + "}";

@@ -12,6 +12,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import BusinessLayer.LastTimeUpdateBUS;
 
 /**
  *
@@ -32,12 +33,13 @@ public class TimeRating extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        LastTimeUpdateBUS lasttime = new LastTimeUpdateBUS("root", "rootmysql!@3");
+        java.sql.Timestamp tempt = lasttime.getLastTimeUpdate();
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
             
             // trả về thời gian cuối cùng xếp hạng tin tức
-            out.println("2015-10-06 9:19");
-            
+            out.println("{\"lasttime\":" + tempt + "}");            
         }
     }
 

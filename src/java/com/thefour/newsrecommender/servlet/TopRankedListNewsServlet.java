@@ -36,7 +36,7 @@ public class TopRankedListNewsServlet extends HttpServlet {
      private NewsBUS newsBUS = null;
     @Override
     public void init() {
-         newsBUS = new NewsBUS("nhat", "mysql!@3");
+         newsBUS = new NewsBUS("root", "rootmysql!@3");
 
     }
 
